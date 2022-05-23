@@ -6,13 +6,13 @@ const userSchema = new Schema(
     {
         username: { type: String, required: true, unique: true, trim: true },
         email: { type: String, required: true, unique: true, match: [ emailPattern, "Invalid email address" ]},
-        /*thoughts:
+        thoughts:
         [
             {
               type: Schema.Types.ObjectId,
               ref: 'thought',
             },
-        ],*/
+        ],
         friends:
         [
             {
