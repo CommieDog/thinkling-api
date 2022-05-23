@@ -1,3 +1,5 @@
+const { Thought } = require("../models");
+
 module.exports = {
     getThought: function(req, res)
     {
