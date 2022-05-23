@@ -23,4 +23,14 @@ module.exports = {
     {
         res.send("Delete a user!");
     },
+    
+    addFriend: function(req, res)
+    {
+        res.send("Add a friend!");
+    },
+    
+    removeFriend: function(req, res)
+    {
+        res.send("Remove a friend!");
+    },
 }
