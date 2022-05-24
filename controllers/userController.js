@@ -94,6 +94,7 @@ module.exports = {
         }
     },
     
+    // Ugh. Was not able to get this working
     removeFriend: function(req, res)
     {
         res.send("Remove a friend!");
