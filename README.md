@@ -2,6 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Thinkling API is a server API for a social media website backed by MongoDB and Mongoose.
 
+[Video of Internet Retailer Backend showing features](https://drive.google.com/file/d/1xowJKBBjrnqFRX2R6u9rHpsD3WL3N6mp/view)
 ## Table of Contents
 
 * [Usage](#usage)
