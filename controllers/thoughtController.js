@@ -48,12 +48,34 @@ module.exports = {
     
     updateThought: function(req, res)
     {
-        res.send("Update a thought!");
+        Thought.findByIdAndUpdate(req.params.id, 
+            {
+                username: req.body.username,
+                thoughtText: req.body.thoughtText,
+            }, {new: true}, (err, result) =>
+                {
+                    if (err)
+                    {
+                        console.error(err);
+                        return res.status(500).json({ message: "Failed to update thought" });
+                    }
+                    res.status(200).json(result);
+                }
+        );
     },
     
     deleteThought: function(req, res)
     {
-        res.send("Delete a thought!");
+        Thought.deleteOne( { _id: req.params.id }, (err, result) =>
+            {
+                if (err)
+                {
+                    console.error(err);
+                    return res.status(500).json({ message: "Failed to delete thought" });
+                }
+                res.status(200).json(result);
+            }
+        );
     },
     
     addReaction: function(req, res)
