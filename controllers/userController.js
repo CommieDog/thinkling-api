@@ -46,9 +46,23 @@ module.exports = {
         }
     },
     
-    updateUser: function(req, res)
+    updateUser: async function(req, res)
     {
-        res.send("Update a user!");
+        const updatedUser = User.findByIdAndUpdate(req.params.id, 
+            {
+                username: req.body.username,
+                email: req.body.email,
+            }, {new: true}, (err, result) =>
+                {
+                    if (err)
+                    {
+                        console.error(err);
+                        return res.status(500).json({ message: "Failed to update record" });
+                    }
+                    //console.log(doc);
+                    res.status(200).json(result);
+                }
+        );
     },
     
     deleteUser: function(req, res)
