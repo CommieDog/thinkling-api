@@ -3,7 +3,14 @@ const { User } = require("../models");
 module.exports = {
     getUser: function(req, res)
     {
-        res.send("Get a user!");
+        User.find({ _id: req.params.id }, (err, result) => {
+        if (err)
+        {
+            console.error(err);
+            return res.status(500).json({ message: "Failed to load record" });
+        }
+        res.status(200).json(result);
+    });
     },
 
     getUsers: function(req, res)
