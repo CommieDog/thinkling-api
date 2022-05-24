@@ -78,9 +78,20 @@ module.exports = {
         );
     },
     
-    addFriend: function(req, res)
+    addFriend: async function(req, res)
     {
-        res.send("Add a friend!");
+        try
+        {
+            const user = await User.findById(req.params.userId);
+            user.friends.push(req.params.friendId);
+            user.save();
+            res.send(user);
+        }
+        catch(error)
+        {
+            console.error(error);
+            res.status(500).json(error);
+        }
     },
     
     removeFriend: function(req, res)
