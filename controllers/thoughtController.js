@@ -78,6 +78,7 @@ module.exports = {
         );
     },
     
+    // Ugh. Was not able to get this working
     addReaction: function(req, res)
     {
         res.send("Add a reation!");
