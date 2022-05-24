@@ -48,7 +48,7 @@ module.exports = {
     
     updateUser: async function(req, res)
     {
-        const updatedUser = User.findByIdAndUpdate(req.params.id, 
+        User.findByIdAndUpdate(req.params.id, 
             {
                 username: req.body.username,
                 email: req.body.email,
@@ -59,7 +59,6 @@ module.exports = {
                         console.error(err);
                         return res.status(500).json({ message: "Failed to update record" });
                     }
-                    //console.log(doc);
                     res.status(200).json(result);
                 }
         );
@@ -67,7 +66,16 @@ module.exports = {
     
     deleteUser: function(req, res)
     {
-        res.send("Delete a user!");
+        User.deleteOne( { _id: req.params.id }, (err, result) =>
+            {
+                if (err)
+                {
+                    console.error(err);
+                    return res.status(500).json({ message: "Failed to delete record" });
+                }
+                res.status(200).json(result);
+            }
+        );
     },
     
     addFriend: function(req, res)
